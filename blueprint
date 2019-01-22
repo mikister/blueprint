@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+
+# Check if blueprint directory exist; create if not
+if [[ ! -d ~/.blueprint ]]; then
+    mkdir ~/.blueprint
+fi
+
+# Check if blueprint data directory exist; create if not
+if [[ ! -d ~/.blueprint/.blueprint_data ]]; then
+    mkdir ~/.blueprint/.blueprint_data
+fi
+
+python3 /usr/local/bin/blueprint.py "$@"
