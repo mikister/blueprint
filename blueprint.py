@@ -121,7 +121,7 @@ def list(regexing):
     for ii in range(len(blueprints_list)):
         blp_name = blueprints_list[ii]
         if regex.match(blp_name):
-            print(" " + str(ii) + " │ " + blp_name.ljust(maxNameSize) + " │ " + du(BLUEPRINT_DATA_PATH + blp_name))
+            print(" " + str(ii) + " │ " + blp_name.ljust(maxNameSize) + " │ " + get_size(BLUEPRINT_DATA_PATH + blp_name))
     print("")
 
 
@@ -134,7 +134,7 @@ def blueprint_exists(name):
     return False
 
 
-def du(path):
+def get_size(path):
     """disk usage in human readable format (e.g. '2,1GB')"""
     return subprocess.check_output(['du', '-sh', path]).split()[0].decode('utf-8')
 
