@@ -60,7 +60,6 @@ def cli(ctx):
 @cli.command()
 @click.argument('name')
 def blueprint(name):
-    print("Blueprint | " + name)
     copy_tree(BLUEPRINT_DATA_PATH + name, os.getcwd())
 
 
@@ -68,7 +67,6 @@ def blueprint(name):
 @click.argument('name')
 @click.option('--no-file-explorer', '-nfe', is_flag=True, help='Doesn\'t open the file explorer')
 def new(name, no_file_explorer):
-    print(name)
     if not blueprint_exists(name):
         os.makedirs(BLUEPRINT_DATA_PATH + name)
     if not no_file_explorer:
@@ -87,7 +85,6 @@ def getpath(name):
 @cli.command()
 @click.argument('name')
 def delete(name):
-    print(name)
     if blueprint_exists(name):
         shutil.rmtree(BLUEPRINT_DATA_PATH + name)
 
