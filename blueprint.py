@@ -75,6 +75,15 @@ def new(name):
 
 @cli.command()
 @click.argument('name')
+def getpath(name):
+    if blueprint_exists(name):
+        print(BLUEPRINT_DATA_PATH + name)
+    else:
+        print("Blueprint doesn't exist!")
+
+
+@cli.command()
+@click.argument('name')
 def delete(name):
     print(name)
     if blueprint_exists(name):
