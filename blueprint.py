@@ -66,11 +66,13 @@ def blueprint(name):
 
 @cli.command()
 @click.argument('name')
-def new(name):
+@click.option('--no-file-explorer', '-nfe', is_flag=True, help='Doesn\'t open the file explorer')
+def new(name, no_file_explorer):
     print(name)
     if not blueprint_exists(name):
         os.makedirs(BLUEPRINT_DATA_PATH + name)
-    subprocess.call("xdg-open " + BLUEPRINT_DATA_PATH + name, shell=True)
+    if not no_file_explorer:
+        subprocess.call("xdg-open " + BLUEPRINT_DATA_PATH + name, shell=True)
 
 
 @cli.command()
