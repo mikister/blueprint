@@ -100,9 +100,9 @@ def showfiles(name):
             ftype = " "
             filepath = BLUEPRINT_DATA_PATH + name + "/" + ff
             if os.path.isdir(filepath):
-                    ftype = "D"
+                ftype = "D"
             elif os.path.isfile(filepath):
-                    ftype = "F"
+                ftype = "F"
             print("   " + ftype + " | " + ff)
 
 
@@ -114,7 +114,7 @@ def list(regexing):
         regexQuerry = regexing[0]
     else:
         regexQuerry = ".*"
-    
+
     regex = re.compile(regexQuerry)
 
     print("\nAvaiable blueprints:")
@@ -146,8 +146,6 @@ def blueprint_exists(name):
 def get_size(path):
     """disk usage in human readable format (e.g. '2,1GB')"""
     return subprocess.check_output(['du', '-sh', path]).split()[0].decode('utf-8')
-
-
 
 
 if __name__ == '__main__':
