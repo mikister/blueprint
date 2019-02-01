@@ -60,6 +60,7 @@ def cli(ctx):
 @cli.command()
 @click.argument('name')
 def blueprint(name):
+    """Create a local copy of blueprint contents."""
     copy_tree(BLUEPRINT_DATA_PATH + name, os.getcwd())
 
 
@@ -67,6 +68,7 @@ def blueprint(name):
 @click.argument('name')
 @click.option('--no-file-explorer', '-nfe', is_flag=True, help='Doesn\'t open the file explorer')
 def new(name, no_file_explorer):
+    """Create a new blueprint."""
     if not blueprint_exists(name):
         os.makedirs(BLUEPRINT_DATA_PATH + name)
     if not no_file_explorer:
@@ -76,6 +78,7 @@ def new(name, no_file_explorer):
 @cli.command()
 @click.argument('name')
 def getpath(name):
+    """Print the absolute path to blueprint contents."""
     if blueprint_exists(name):
         print(BLUEPRINT_DATA_PATH + name)
     else:
@@ -85,6 +88,7 @@ def getpath(name):
 @cli.command()
 @click.argument('name')
 def delete(name):
+    """Delete a blueprint."""
     if blueprint_exists(name):
         shutil.rmtree(BLUEPRINT_DATA_PATH + name)
 
@@ -92,6 +96,7 @@ def delete(name):
 @cli.command()
 @click.argument('name')
 def showfiles(name):
+    """Print contents of a blueprint."""
     print("Showing file for blueprint: " + name)
     if blueprint_exists(name):
         files = os.listdir(BLUEPRINT_DATA_PATH + name)
@@ -108,7 +113,7 @@ def showfiles(name):
 @cli.command()
 @click.argument('regexing', nargs=-1, required=False)
 def list(regexing):
-    """Lists all blueprints."""
+    """List all blueprints that match a regex query."""
     if regexing:
         regexQuerry = regexing[0]
     else:
@@ -136,6 +141,7 @@ def list(regexing):
 # Utility functions
 
 def blueprint_exists(name):
+    """Check if a blueprint exists."""
     if os.path.exists(BLUEPRINT_DATA_PATH + name):
         if os.path.isdir(BLUEPRINT_DATA_PATH + name):
             return True
@@ -143,7 +149,7 @@ def blueprint_exists(name):
 
 
 def get_size(path):
-    """disk usage in human readable format (e.g. '2,1GB')"""
+    """Disk usage in human readable format (e.g. '2,1GB')"""
     return subprocess.check_output(['du', '-sh', path]).split()[0].decode('utf-8')
 
 
