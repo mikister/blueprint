@@ -128,9 +128,15 @@ def list(regexing):
 
     regex = re.compile(regexQuerry)
 
-    print("\nAvaiable blueprints:")
     blueprints_list = os.listdir(BLUEPRINT_DATA_PATH)
     blueprints_list.sort()
+
+    # Edge case check in case there are no blueprints created
+    if len(blueprints_list) == 0:
+        print("There are no existing blueprints!")
+        return None
+
+    print("\nAvaiable blueprints:")
 
     maxNameSize = max([len(blp) for blp in blueprints_list])
     indexPadSize = len(str(len(blueprints_list))) + 1
