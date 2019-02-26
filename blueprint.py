@@ -57,6 +57,11 @@ def cli(ctx):
     pass
 
 
+# ---------------------------------------------------
+#                User exposed commands
+# ---------------------------------------------------
+
+
 @cli.command()
 @click.argument('name')
 def blueprint(name):
@@ -138,7 +143,9 @@ def list(regexing):
     print("")
 
 
-# Utility functions
+# -----------------------------------------------
+#                Utility functions
+# -----------------------------------------------
 
 def blueprint_exists(name):
     """Check if a blueprint exists."""
