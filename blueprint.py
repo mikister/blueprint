@@ -13,6 +13,7 @@ BLUEPRINT_DATA_PATH = os.path.expanduser("~") + "/.blueprint/.blueprint_data/"
 
 
 class DefaultGroup(click.Group):
+    """Modified version the default group that allows for setting of a default command."""
 
     ignore_unknown_options = True
 
