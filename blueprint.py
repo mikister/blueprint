@@ -4,9 +4,8 @@ import json
 import subprocess
 import os
 import click
-from distutils.dir_util import copy_tree
+from distutils.dir_util import copy_tree, remove_tree
 import re
-import shutil
 
 
 # The path where blueprints are stored
@@ -97,7 +96,7 @@ def getpath(name):
 def delete(name):
     """Delete a blueprint."""
     if blueprint_exists(name):
-        shutil.rmtree(BLUEPRINT_DATA_PATH + name)
+        remove_tree(BLUEPRINT_DATA_PATH + name)
 
 
 @cli.command()
