@@ -10,7 +10,7 @@ import shutil
 
 
 # The path where blueprints are stored
-BLUEPRINT_DATA_PATH = os.path.expanduser("~") + "/.blueprint/.blueprint_data/"
+BLUEPRINT_DATA_PATH = os.path.expanduser("~") + "/.blueprint/"
 
 
 class DefaultGroup(click.Group):
