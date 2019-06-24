@@ -7,7 +7,7 @@ A tool that manages templates and boilerplate files for you.
 Lets say you have a **blueprint** (WIP name for a collection of files and dirs) that you called `flask-boilerplate`. You go to an empty directory for your new flask project and type this in the terminal:
 
 ```shell
-$ blueprint flask-boilerplate
+blueprint flask-boilerplate
 ```
 
 That's it!
