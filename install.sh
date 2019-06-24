@@ -7,18 +7,12 @@ if [[ ! -d "/home/$(whoami)/.blueprint" ]]; then
     mkdir "/home/$(whoami)/.blueprint"
 fi
 
-# Check if blueprint data directory exist; create if not
-if [[ ! -d "/home/$(whoami)/.blueprint/.blueprint_data" ]]; then
-    mkdir "/home/$(whoami)/.blueprint/.blueprint_data"
-fi
-
+# Change owner on .blueprint directory from root to current user
 sudo chown -R "$(whoami):$(whoami)" "/home/$(whoami)/.blueprint"
 
 
-# Copy script to /usr/local/bin/
+# Copy neccesary scripts to /usr/local/bin/
 sudo cp ./blueprint.py /usr/local/bin/
-
-# Copy command script to /usr/local/bin
 sudo cp ./blueprint /usr/local/bin
 
 # Make /usr/local/bin/blueprint executable
