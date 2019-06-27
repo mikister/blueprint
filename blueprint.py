@@ -73,7 +73,7 @@ def blueprint(name):
 @click.argument('name')
 @click.option('--no-file-explorer', '-nfe', is_flag=True, help='Doesn\'t open the file explorer')
 @click.option('-cwd', is_flag=True, help='Copy contents of the current directory to the new blueprint')
-def new(name, no_file_explorer, cwd):
+def create(name, no_file_explorer, cwd):
     """Create a new blueprint."""
     if not blueprint_exists(name):
         os.makedirs(BLUEPRINT_DATA_PATH + name)
